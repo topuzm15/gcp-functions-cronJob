@@ -1,4 +1,6 @@
-def http_cron_job(request):
+from loguru import Logger
+
+def http_currency_updater(request):
     """Responds to any HTTP request.
     Args:
         request (flask.Request): HTTP request object.
@@ -9,6 +11,7 @@ def http_cron_job(request):
     """
 
     request_json = request.get_json()
+    Logger.info("Request: {request}", request=request_json)
     if request.args and 'message' in request.args:
         return request.args.get('message')
     elif request_json and 'message' in request_json:

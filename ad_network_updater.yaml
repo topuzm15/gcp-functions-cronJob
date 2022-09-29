@@ -4,7 +4,7 @@ steps:
   - functions
   - deploy
   - http_cron_job
-  - --source=.
+  - --source=./http_ad_network_updater/
   - --trigger-http
   - --runtime=python38
   - --allow-unauthenticated
