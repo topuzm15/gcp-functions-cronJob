@@ -1,0 +1,10 @@
+steps:
+- name: 'gcr.io/cloud-builders/gcloud'
+  args:
+  - functions
+  - deploy
+  - http_cron_job
+  - --source=.
+  - --trigger-http
+  - --runtime=python38
+  - --allow-unauthenticated
