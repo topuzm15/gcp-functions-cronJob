@@ -1,5 +1,5 @@
-from .currency import CurrencyConfig
-from .big_query import BigQueryConfig
+from .currency_config import CurrencyConfig
+from .big_query_config import BigQueryConfig
 
 __all__ = [
     "CurrencyConfig",

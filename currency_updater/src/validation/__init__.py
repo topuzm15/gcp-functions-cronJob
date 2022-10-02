@@ -1,1 +1,1 @@
-from .currency import CurrencyRequestValidation
+from .currency_validation import CurrencyRequestValidation
