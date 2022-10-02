@@ -10,6 +10,7 @@ class CurrencyUpdater:
     currency_caller = CurrencyCaller()
 
     def get_currency_data(date=datetime.today().strftime("%Y-%m-%d")):
+        logger.info("Calling currency api for date: {date}", date=date)
         return CurrencyUpdater.currency_caller.get_all_currencies(date)
 
     def insert_currency_data_in_range(start_date, end_date):
