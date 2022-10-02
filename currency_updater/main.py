@@ -6,8 +6,6 @@ import os
 def http_currency_updater(request):
     request_json = request.get_json()
     logger.info("Request body: {request}", request=request_json)
-
-    logger.info(os.listdir(os.curdir))
     try:
         if request_json != {}:
             payload = CurrencyRequestValidation.parse_obj(request_json)
