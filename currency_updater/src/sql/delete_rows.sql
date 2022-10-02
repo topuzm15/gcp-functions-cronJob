@@ -1,0 +1,1 @@
+DELETE FROM {table_name} WHERE dt >= '{start_date}' and dt < '{end_date}';

@@ -1,17 +1,16 @@
-def http_currency_updater(request):
-    """Responds to any HTTP request.
-    Args:
-        request (flask.Request): HTTP request object.
-    Returns:
-        The response text or any set of values that can be turned into a
-        Response object using
-        `make_response <http://flask.pocoo.org/docs/0.12/api/#flask.Flask.make_response>`.
-    """
+from loguru import logger
+from src import CurrencyUpdater, CurrencyRequestValidation
 
+import os
+
+def http_currency_updater(request):
     request_json = request.get_json()
-    if request.args and 'message' in request.args:
-        return request.args.get('message')
-    elif request_json and 'message' in request_json:
-        return request_json['message']
-    else:
-        return f'Hello World!'
+    logger.info("Request body: {request}", request=request_json)
+
+    logger.info(os.listdir(os.curdir))
+    try:
+        CurrencyUpdater.insert_currency_data()
+    except Exception as e:
+        logger.error("Error while updating currency data: {error}", error=e)
+        return f"Error in currency updater"
+    return f'Operation completed successfully'
