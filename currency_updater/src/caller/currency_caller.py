@@ -1,5 +1,5 @@
 from src.config import CurrencyConfig
-from datetime import datetime as date
+from datetime import datetime
 from currency_converter import CurrencyConverter
 
 
@@ -12,6 +12,6 @@ class CurrencyCaller:
     def get_currency(self, currency):
         return self.c.convert(1, self.currency_base, currency)
 
-    def get_all_currencies(self):
-        return [{"dt": date.today().strftime("%Y-%m-%d"),  "code": i, "rate": self.get_currency(i)} for i in self.currency_list]
+    def get_all_currencies(self, date):
+        return [{"dt": date,  "code": i, "rate": self.get_currency(i)} for i in self.currency_list]
 

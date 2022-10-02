@@ -1,5 +1,5 @@
 from src.config import BigQueryConfig
-
+from loguru import logger
 
 class CurrencyDataModel:
     def __init__(self) -> None:
@@ -11,8 +11,9 @@ class CurrencyDataModel:
                                           "start_date": start_date,
                                           "end_date": end_date})
 
+        logger.info(query)
         query_job = self.client.query(query)
         return query_job.result()
 
     def insert_currency_data(self, data):
-        self.client.insert_rows_json(BigQueryConfig.currency_table, data)
+        self.client.insert_rows_json(BigQueryConfig.currency_table, data, row_ids=[None] * len(data))

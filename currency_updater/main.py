@@ -9,8 +9,12 @@ def http_currency_updater(request):
 
     logger.info(os.listdir(os.curdir))
     try:
-        CurrencyUpdater.insert_currency_data()
+        if request_json != {}:
+            payload = CurrencyRequestValidation.parse_obj(request_json)
+            return CurrencyUpdater.apply_operation(payload)
+        else:
+            return CurrencyUpdater.insert_currency_data()
     except Exception as e:
         logger.error("Error while updating currency data: {error}", error=e)
         return f"Error in currency updater"
-    return f'Operation completed successfully'
+    
