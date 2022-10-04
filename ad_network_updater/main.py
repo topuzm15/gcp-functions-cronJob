@@ -1,5 +1,5 @@
 from loguru import logger
-from src import AdNetworkUpdater, AdNetworktValidation
+from src import AdNetworkUpdater
 
 def http_ad_network_updater(request):
     request_json = request.get_json()

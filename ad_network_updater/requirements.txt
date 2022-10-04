@@ -7,3 +7,5 @@ CurrencyConverter==0.17.1
 dask[dataframe]==2022.9.2
 fastparquet==0.8.3
 gcsfs==2022.8.2
+sqlalchemy==1.4.41
+pybigquery==0.10.2
