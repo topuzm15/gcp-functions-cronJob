@@ -1,0 +1,9 @@
+google-cloud-storage==2.5.0
+loguru==0.6.0
+pydantic==1.10.2
+google-cloud==0.34.0
+google-cloud-bigquery==3.3.3
+CurrencyConverter==0.17.1
+dask[dataframe]==2022.9.2
+fastparquet==0.8.3
+gcsfs==2022.8.2

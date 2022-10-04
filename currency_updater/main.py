@@ -1,8 +1,6 @@
 from loguru import logger
 from src import CurrencyUpdater, CurrencyRequestValidation
 
-import os
-
 def http_currency_updater(request):
     request_json = request.get_json()
     logger.info("Request body: {request}", request=request_json)

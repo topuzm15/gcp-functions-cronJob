@@ -1,17 +1,12 @@
-def http_ad_network_updater(request):
-    """Responds to any HTTP request.
-    Args:
-        request (flask.Request): HTTP request object.
-    Returns:
-        The response text or any set of values that can be turned into a
-        Response object using
-        `make_response <http://flask.pocoo.org/docs/0.12/api/#flask.Flask.make_response>`.
-    """
+from loguru import logger
+from src import AdNetworkUpdater, AdNetworktValidation
 
+def http_ad_network_updater(request):
     request_json = request.get_json()
-    if request.args and 'message' in request.args:
-        return request.args.get('message')
-    elif request_json and 'message' in request_json:
-        return request_json['message']
-    else:
-        return f'Hello World!'
+    logger.info("Request body: {request}", request=request_json)
+    try:
+        return AdNetworkUpdater.insert_data()
+    except Exception as e:
+        logger.error("Error while updating ad_network data: {error}", error=e)
+        return f"Error in ad_network updater"
+    
