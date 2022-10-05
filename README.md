@@ -47,5 +47,5 @@ Normaly the etl jobs trigger with `{}` body but in some cases we could run etl j
 
 ## Nice to have
 
-* In feature I can add parametric option in ad network etl.
-* In feature I can run bigQueries with dask framework.
+* In future I can add parametric option in ad network etl.
+* In future I can run bigQueries with dask framework.
