@@ -1,6 +1,6 @@
 # gcp-functions-cronJob
 
-In this project I try to build etl pipeline and store the data in BigQuery with google cloud platform. To create etl pipeline I use gcp functions as processor and gcp scheduler as trigger. I build 2 different pipeline one of them is extract currency data and insert currency values daily and the second one is extract some informarmation on gcp storege apply some logics and update BigQuery.
+In this project I try to build etl pipeline and store the data in BigQuery with google cloud platform. To create etl pipeline I use gcp functions as processor and gcp scheduler as trigger. I build 2 different pipeline one of them is extract currency data and insert currency values daily and the second one is extract some informarmation on gcp storege, apply some logics and update BigQuery.
 
 ## Architecture
 
@@ -35,7 +35,7 @@ Ad Network etlJob tag: `adnetwork0.0.0` <br>
 
 ## Development
 
-In the development phase I used dev BigQuery tables with functions framework with this framework we can similate gcp functions. To run this framework with environment variables use following cmds.
+In the development phase I used dev BigQuery tables and functions framework with this setup we can similate production. To run this framework with environment variables use following cmds.
 
 `CURRENCY_TABLE='<table_name>' GOOGLE_APPLICATION_CREDENTIALS='<credentials_path>' functions-framework --target http_currency_updater --debug`
 
